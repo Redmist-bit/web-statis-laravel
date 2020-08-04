@@ -8,5 +8,6 @@
 <body>
     <h1>Selamat Datang {{$fname}} {{$lname}}</h1>
     <H2>Terima kasih telah bergabung di Sanberbook. Social Media kita bersama!</H2>
+    <h3>hahahaha</h3>
 </body>
 </html>
