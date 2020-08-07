@@ -28,3 +28,11 @@ Route::get('/', function(){
 Route::get('/data-tables', function(){
     return view('items.data');
 });
+
+Route::get('/pertanyaan/create','AskController@create');
+Route::post('/pertanyaan','AskController@store');
+Route::get('/pertanyaan','AskController@index');
+Route::get('/pertanyaan/{id}','AskController@show');
+Route::get('/pertanyaan/{id}/edit','AskController@edit');
+Route::put('/pertanyaan/{id}','AskController@update');
+Route::delete('/pertanyaan/{id}','AskController@destroy');

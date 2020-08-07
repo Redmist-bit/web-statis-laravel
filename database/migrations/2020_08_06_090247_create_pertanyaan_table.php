@@ -17,8 +17,8 @@ class CreatePertanyaanTable extends Migration
             $table->bigIncrements('id');
             $table->string('judul');
             $table->longtext('isi');  
-            $table->date('tanggal_dibuat');
-            $table->date('tanggal_diperbaharui');
+            $table->date('tanggal_dibuat')->nullable();
+            $table->date('tanggal_diperbaharui')->nullable();
             $table->timestamps();
         });
     }
