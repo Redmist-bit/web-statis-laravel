@@ -5,9 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Pertanyaan;
+use Auth;
 
 class AskController extends Controller
 {
+    public function __construct(){
+        // $this->middleware('auth')->except(['index']);
+        $this->middleware('auth')->only(['create','edit','update','store']);
+    }
+
     public function create() {
         return view('ask.create');
     }
@@ -36,7 +42,8 @@ class AskController extends Controller
             "judul" => $request["judul"],
             "isi" => $request["isi"],
             "tanggal_dibuat" => $request["datein"],
-            "tanggal_diperbaharui" => $request["dateout"]
+            "tanggal_diperbaharui" => $request["dateout"],
+            "user_id" => Auth::id()
         ]);
          
         return redirect('/pertanyaan')->with('success','Pertanyaan anda telah tersimpan');

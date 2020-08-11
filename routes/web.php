@@ -22,7 +22,7 @@ Route::get('/master', function(){
 });
 
 Route::get('/', function(){
-    return view('items.index');
+    return view('welcome');
 });
 
 Route::get('/data-tables', function(){
@@ -40,3 +40,6 @@ Route::get('/data-tables', function(){
 // Route::resource('pertanyaan','PertanyaanController');
 
 Route::resource('pertanyaan','AskController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
