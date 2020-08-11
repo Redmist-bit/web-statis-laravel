@@ -13,7 +13,8 @@
                         {{ session('success') }}
                     </div>
                 @endif
-                <a class="btn btn-primary mb-2" href="/pertanyaan/create">Tambahkan Pertanyaan</a>
+                <!-- <a class="btn btn-primary mb-2" href="/pertanyaan/create">Tambahkan Pertanyaan</a> -->
+                <a class="btn btn-primary mb-2" href="{{ route('pertanyaan.create') }}">Tambahkan Pertanyaan</a>
                 <table class="table table-bordered">
                   <thead>                  
                     <tr>
@@ -34,8 +35,10 @@
                             <td>{{$ask->tanggal_dibuat}}</td>
                             <td>{{$ask->tanggal_diperbaharui}}</td>
                             <td style="display: flex;">
-                                <a href="/pertanyaan/{{$ask->id}}" class="btn btn-info btn-sm">show</a>
-                                <a href="/pertanyaan/{{$ask->id}}/edit" class="btn btn-default btn-sm">edit</a>
+                                <!-- <a href="/pertanyaan/{{$ask->id}}" class="btn btn-info btn-sm">show</a> -->
+                                <a href="{{ route('pertanyaan.show', ['pertanyaan'=>$ask->id]) }}" class="btn btn-info btn-sm">show</a>
+                                <!-- <a href="/pertanyaan/{{$ask->id}}/edit" class="btn btn-default btn-sm">edit</a> -->
+                                <a href="{{ route('pertanyaan.edit',['pertanyaan'=>$ask->id])}}" class="btn btn-default btn-sm">edit</a>
                                 <form action="/pertanyaan/{{$ask->id}}" method="POST">
                                     @csrf
                                     @method('DELETE')
